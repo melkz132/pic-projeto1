@@ -1,4 +1,4 @@
-package projC1;
+package com.pic.projeto;
 
 import java.util.LinkedList;
 import java.util.Queue;

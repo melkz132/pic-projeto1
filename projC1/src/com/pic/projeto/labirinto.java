@@ -4,7 +4,7 @@
  * 
 */
 
-package projC1;
+package com.pic.projeto;
 
 import java.io.BufferedReader;
 import java.io.File;
