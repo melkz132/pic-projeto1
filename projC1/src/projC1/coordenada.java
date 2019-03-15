@@ -36,6 +36,7 @@ public class coordenada {
 		
 			 Scanner scanner = new Scanner(new File(filename)); 
 			 String S;
+			 int cont = 0;
 			 
 			 try{
 			 S = scanner.nextLine();
@@ -43,41 +44,55 @@ public class coordenada {
 			 L = Integer.parseInt(S);
 			 //System.out.println("L="+L);
 			
-			 try{
-			 S = scanner.nextLine();
-			 System.out.println("Colunas="+S);
-			 C = Integer.parseInt(S);
-			 System.out.println("C="+C);
-			
+			try{
+			S = scanner.nextLine();
+			 cont = S.length();
+			 System.out.println("Colunas="+cont);
+			 C = cont;
+			 //System.out.println("C="+C);*/
+			 maze = new char[L][C];
+			 
+			 char [] tokens = S.toCharArray();
+			 
+			 int i=0;
+			 for (int j = 0; j < C ; j++){
+					maze[i][j] = tokens[j];
+					//System.out.println("j="+j+" i= "+i+" m= "+maze[i][j]);
+					
+				}
+			 i++;
 			 
 			try{
-				maze = new char[L][C];
 				
-				int i=0;
 				while(i < L){
 					//System.out.println("i="+i);
 					String line = scanner.nextLine();
 					
-					char [] tokens = line.toCharArray();
+					tokens = line.toCharArray();
 					
-					
-					for (int t=0; t < C; t++){
-					//System.out.print(tokens[t]);
+					if(i==0) {
+						cont = line.length();
+						System.out.println("Colunas="+cont);
 					}
+					
+					/*for (int t=0; t < C; t++){
+					System.out.print(tokens[t]);
+					}*/
 					//System.out.println("\nlength="+tokens.length);
 					
-					int j = 0;
-					for (; j < C ; j++){
+					if( cont != tokens.length){
+						maze = null;
+						status=1;
+						throw new ArrayIndexOutOfBoundsException();
+					}
+					
+					for (int j = 0; j < C ; j++){
 						maze[i][j] = tokens[j];
 						//System.out.println("j="+j+" i= "+i+" m= "+maze[i][j]);
 						
 					}
 					
-					if( j != tokens.length){
-						maze = null;
-						status=1;
-						throw new ArrayIndexOutOfBoundsException();
-					}	
+						
 
 					i++;
 					if(!scanner.hasNextLine()){
@@ -104,7 +119,7 @@ public class coordenada {
 				 status=1;
 			 }
 			 }
-			 catch(Exception e){
+			catch(Exception e){
 				 System.out.println("Nao existe o numero de colunas");
 				 status=1;
 			 }
@@ -136,8 +151,6 @@ public class coordenada {
 		
 		int q = 0;
 		int w = 0;
-		int a = 0;
-		int b = 0;
 		int e = 0;
 		try{
 			 for (q = 0; q < L; q++){
