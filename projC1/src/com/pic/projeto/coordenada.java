@@ -208,6 +208,68 @@ public class coordenada {
 			
 			 }
 	
+		public static void searchS(){
+		
+		
+		int q = 0;
+		int w = 0;
+		int s = 0;
+		try{
+			 for (q = 0; q < L; q++){
+				 
+					if(maze[q][w]=='S'){
+						System.out.println("Existe saida");
+						EntL = q;
+						EntC = w;
+						s++;
+					}
+					
+			 }
+				q=q-1;	
+			 for (w = 0; w < C; w++){
+				 
+						if(maze[q][w]=='S'){
+							System.out.println("Existe saida");
+							EntL = q;
+							EntC = w;
+							s++;
+						}
+					}
+			 w=w-1;
+			 for (; q > 0; q--){
+					
+					if(maze[q][w]=='S'){
+						System.out.println("Existe saida");
+						EntL = q;
+						EntC = w;
+						s++;
+					}
+				}
+			 for (; w > 0; w--){
+					
+					if(maze[q][w]=='S'){
+						System.out.println("Existe saida");
+						EntL = q;
+						EntC = w;
+						s++;
+					}
+				}
+		}
+		catch(Exception ws){
+			
+		}
+			 if(s>1){
+				 System.out.println("Existe "+s+" saidas");
+				 status=1;
+			 }
+			 if(s<1){
+				 System.out.println("Nao existe saida");
+				 status=1;
+			 }
+			
+			
+			 }
+
 	public static char [][] getMaze(){
 		return maze;
 	}
