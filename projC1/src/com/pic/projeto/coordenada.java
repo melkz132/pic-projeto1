@@ -210,7 +210,6 @@ public class coordenada {
 	
 		public static void searchS(){
 		
-		
 		int q = 0;
 		int w = 0;
 		int s = 0;
