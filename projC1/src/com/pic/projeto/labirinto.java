@@ -94,7 +94,13 @@ public class labirinto {
 				System.out.println("");
 				coordenada.searchB();
 				}
-		
+				
+				status = coordenada.getStatus();
+				if(status == 0){
+				//procura buracos
+				System.out.println("");
+				coordenada.verifyESMiddle();
+				}
 		
 		
 		

@@ -152,13 +152,21 @@ public class coordenada {
 		int q = 0;
 		int w = 0;
 		int e = 0;
+		int i = 0;
+		String[] position;
+		
+		i=((L*2)+(C*2));
+		position = new String[i];
+			i = 0;
+			
 		try{
-			 for (q = 0; q < L; q++){
+			for (q = 0; q < L; q++){
 				 
 					if(maze[q][w]=='E'){
-						System.out.println("Existe entrada");
+						//System.out.println("Existe entrada");
 						EntL = q;
 						EntC = w;
+						position[i++] = q+","+w;
 						e++;
 					}
 					
@@ -167,9 +175,10 @@ public class coordenada {
 			 for (w = 0; w < C; w++){
 				 
 						if(maze[q][w]=='E'){
-							System.out.println("Existe entrada");
+							//System.out.println("Existe entrada");
 							EntL = q;
 							EntC = w;
+							position[i++] = q+","+w;
 							e++;
 						}
 					}
@@ -177,18 +186,20 @@ public class coordenada {
 			 for (; q > 0; q--){
 					
 					if(maze[q][w]=='E'){
-						System.out.println("Existe entrada");
+						//System.out.println("Existe entrada");
 						EntL = q;
 						EntC = w;
+						position[i++] = q+","+w;
 						e++;
 					}
 				}
 			 for (; w > 0; w--){
 					
 					if(maze[q][w]=='E'){
-						System.out.println("Existe entrada");
+						//System.out.println("Existe entrada");
 						EntL = q;
 						EntC = w;
+						position[i++] = q+","+w;
 						e++;
 					}
 				}
@@ -197,14 +208,23 @@ public class coordenada {
 			System.out.println("Erro na verificacao de entradas");
 		}
 			 if(e>1){
-				 System.out.println("Existe "+e+" entradas");
+				 System.out.println("Existe "+e+" entradas \nL C");
+				 i =0;
+				 while(position[i]!= null){
+					 System.out.println(position[i]);
+					 i++;
+				 }
 				 status=0;
 			 }
 			 if(e<1){
 				 System.out.println("Nao existe entrada");
 				 status=1;
 			 }
-			
+			 if(e==1){
+				 System.out.println("Existe entrada \nL C");
+				 System.out.println(position[0]);
+				 status=0;
+			 }
 			
 			 }
 	
@@ -213,13 +233,22 @@ public class coordenada {
 		int q = 0;
 		int w = 0;
 		int s = 0;
+		
+		int i = 0;
+		String[] position;
+		
+		i=((L*2)+(C*2));
+		position = new String[i];
+			i = 0;
+			
 		try{
 			 for (q = 0; q < L; q++){
 				 
 					if(maze[q][w]=='S'){
-						System.out.println("Existe saida");
+						//System.out.println("Existe saida");
 						EntL = q;
 						EntC = w;
+						position[i++] = q+","+w;
 						s++;
 					}
 					
@@ -228,9 +257,10 @@ public class coordenada {
 			 for (w = 0; w < C; w++){
 				 
 						if(maze[q][w]=='S'){
-							System.out.println("Existe saida");
+							//System.out.println("Existe saida");
 							EntL = q;
 							EntC = w;
+							position[i++] = q+","+w;
 							s++;
 						}
 					}
@@ -238,18 +268,20 @@ public class coordenada {
 			 for (; q > 0; q--){
 					
 					if(maze[q][w]=='S'){
-						System.out.println("Existe saida");
+						//System.out.println("Existe saida");
 						EntL = q;
 						EntC = w;
+						position[i++] = q+","+w;
 						s++;
 					}
 				}
 			 for (; w > 0; w--){
 					
 					if(maze[q][w]=='S'){
-						System.out.println("Existe saida");
+						//System.out.println("Existe saida");
 						EntL = q;
 						EntC = w;
+						position[i++] = q+","+w;
 						s++;
 					}
 				}
@@ -258,12 +290,22 @@ public class coordenada {
 			System.out.println("Erro na verificacao de saidas");
 		}
 			 if(s>1){
-				 System.out.println("Existe "+s+" saidas");
+				 System.out.println("Existe "+s+" saidas \nL C");
+				 i =0;
+				 while(position[i]!= null){
+					 System.out.println(position[i]);
+					 i++;
+				 }
 				 status=1;
 			 }
 			 if(s<1){
 				 System.out.println("Nao existe saida");
 				 status=1;
+			 }
+			 if(s==1){
+				 System.out.println("Existe saida \nL C");
+				 System.out.println(position[0]);
+				 status=0;
 			 }
 			
 			
@@ -274,13 +316,22 @@ public class coordenada {
 			int q = 0;
 			int w = 0;
 			int b = 0;
+			
+			int i = 0;
+			String[] position;
+			
+			i=((L*2)+(C*2));
+			position = new String[i];
+				i = 0;
+				
 			try{
 				 for (q = 0; q < L; q++){
 					 
 						if(maze[q][w]==' '){
-							System.out.println("Existe buraco");
+							//System.out.println("Existe buraco");
 							EntL = q;
 							EntC = w;
+							position[i++] = q+","+w;
 							b++;
 						}
 						
@@ -289,9 +340,10 @@ public class coordenada {
 				 for (w = 0; w < C; w++){
 					 
 							if(maze[q][w]==' '){
-								System.out.println("Existe buraco");
+								//System.out.println("Existe buraco");
 								EntL = q;
 								EntC = w;
+								position[i++] = q+","+w;
 								b++;
 							}
 						}
@@ -299,18 +351,20 @@ public class coordenada {
 				 for (; q > 0; q--){
 						
 						if(maze[q][w]==' '){
-							System.out.println("Existe buraco");
+							//System.out.println("Existe buraco");
 							EntL = q;
 							EntC = w;
+							position[i++] = q+","+w;
 							b++;
 						}
 					}
 				 for (; w > 0; w--){
 						
-						if(maze[q][w]=='S'){
-							System.out.println("Existe buraco");
+						if(maze[q][w]==' '){
+							//System.out.println("Existe buraco");
 							EntL = q;
 							EntC = w;
+							position[i++] = q+","+w;
 							b++;
 						}
 					}
@@ -318,8 +372,13 @@ public class coordenada {
 			catch(Exception ws){
 				System.out.println("Erro na verificacao de buracos");
 			}
-				 if(b>1){
-					 System.out.println("Existe "+b+" buracos");
+				 if(b>=1){
+					 System.out.println("Existe "+b+" buracos \nL C");
+					 i =0;
+					 while(position[i]!= null){
+						 System.out.println(position[i]);
+						 i++;
+					 }
 					 status=1;
 				 }
 				 if(b<1){
@@ -329,6 +388,72 @@ public class coordenada {
 				
 				
 				 }
+		
+	public static void verifyESMiddle(){
+			int e = 0;
+			int s = 0;
+			
+			int i = 0;
+			String[] position;
+			
+			i=(L*C);
+			position = new String[i];
+				i = 0;
+		try{		
+			for(int q = 1; q<L-1; q++){
+				if(q!=0 && q!=L){
+					for(int w = 1; w<C-1; w++){
+						if(w!=0 && w!=C){
+							if(maze[q][w]=='E'){
+								position[i++] ="E "+ q+","+w;
+								e++;
+							}
+							if(maze[q][w]=='S'){
+								position[i++] ="S "+ q+","+w;
+								s++;
+							}
+						}
+					}
+				}
+			}
+		}
+		catch(Exception asd){
+			System.out.println("Erro na verificacao");
+		}
+		
+		if(e>=1){
+			 System.out.println("Existe "+e+" entradas no meio \n  L C");
+			 i =0;
+			 while(position[i]!= null){
+				 char f = position[i].charAt(0);
+				 if(f == 'E'){
+					 System.out.println(position[i]);
+				 }
+				 i++;
+			 }
+			 status=1;
+		 }
+		
+		if(s>=1){
+			 System.out.println("Existe "+e+" saidas no meio \n  L C");
+			 i =0;
+			 while(position[i]!= null){
+				 char f = position[i].charAt(0);
+				 if(f == 'S'){
+					 System.out.println(position[i]);
+				 }
+				 i++;
+			 }
+			 status=1;
+		 }
+		if(s==0 && e==0){
+			System.out.println("Nao existe entrada/saida no meio");
+		}
+	}
+		
+	 public static void verifyInvalidChar(){
+		 
+	 }
 		
 	public static char [][] getMaze(){
 		return maze;
