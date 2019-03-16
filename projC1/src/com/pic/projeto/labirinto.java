@@ -1,6 +1,6 @@
 /* Nome: Artur Okazaki
  * RA: 11084654
- * Projeto 2: Labirinto
+ * Projeto 1: Labirinto
  * 
 */
 
@@ -101,7 +101,13 @@ public class labirinto {
 				System.out.println("");
 				coordenada.verifyESMiddle();
 				}
-		
+				
+				status = coordenada.getStatus();
+				if(status == 0){
+				//verifica caracteres invalidos
+				System.out.println("");
+				coordenada.verifyInvalidChar();
+				}
 		
 		
 		

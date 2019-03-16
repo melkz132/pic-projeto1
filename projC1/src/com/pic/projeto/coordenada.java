@@ -453,6 +453,42 @@ public class coordenada {
 		
 	 public static void verifyInvalidChar(){
 		 
+		 int i = 0;
+		 String[] position;
+		 
+		 i=(L*C);
+		position = new String[i];
+		i = 0;
+		 try{
+		 for(int q = 0; q<L; q++){
+			 for(int w = 0; w<C; w++){
+				 if (maze[q][w]!= ' ' && maze[q][w]!= '#' && maze[q][w]!='S' && maze[q][w]!='E'){
+					 position[i] =q+","+w+" I:"+ maze[q][w] ;
+					 i++;
+				 	}
+			 	}
+		 	}
+		 }
+		 catch(Exception wawd){
+			 System.out.println("Erro na verificacao");
+		 }
+		 
+		 i=0;
+		 if(position[i]==null){
+			 System.out.println("Nao existe caracteres invalidos");
+		 }
+		 
+		 if(position[i]!=null){
+			 System.out.println("Caracteres invalidos\nL C");
+			 while(position[i]!=null){
+					 System.out.println(position[i]);
+					 i++;
+			 	
+			 }
+			 status=1;
+		 }
+		 
+		 
 	 }
 		
 	public static char [][] getMaze(){
