@@ -81,7 +81,19 @@ public class labirinto {
 				coordenada.searchE();
 				}
 				
+				status = coordenada.getStatus();
+				if(status == 0){
+				//procura saida
+				System.out.println("");
+				coordenada.searchS();
+				}
 				
+				status = coordenada.getStatus();
+				if(status == 0){
+				//procura buracos
+				System.out.println("");
+				coordenada.searchB();
+				}
 		
 		
 		
