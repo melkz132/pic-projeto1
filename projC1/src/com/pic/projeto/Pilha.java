@@ -1,3 +1,5 @@
+package com.pic.projeto;
+
 public class Pilha <X>
 {
     private X[] vetor;

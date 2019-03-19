@@ -1,3 +1,5 @@
+package com.pic.projeto;
+
 class Programa
 {
     public static void main (String[] args)
