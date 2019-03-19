@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
-public class coordenada {
+public class Coordenada {
 	
 	protected static char[][] maze;
 	protected static int L;

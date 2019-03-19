@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class progressao {
+public class Progressao {
 	
 	protected static char[][] maze;
 	protected static int L;
@@ -14,9 +14,9 @@ public class progressao {
 	protected static int status = 0;
 	
 	public static void progress(){
-		maze=coordenada.getMaze();
-		entL=coordenada.getEntL();
-		entC=coordenada.getEntC();
+		maze=Coordenada.getMaze();
+		entL=Coordenada.getEntL();
+		entC=Coordenada.getEntC();
 	
 		Queue<String> fila = new LinkedList<>();
 	

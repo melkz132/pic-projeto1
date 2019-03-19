@@ -38,60 +38,60 @@ public class Index {
 			System.out.println("Nao existe o arquivo "+filename);
 		}
 	
-		status = coordenada.getStatus();
+		status = Coordenada.getStatus();
 		if(status == 0){
 			//imprime tudo do arquivo
 			System.out.println("Conteudo do arquivo "+filename);
-			coordenada.showFile(filename);
+			Coordenada.showFile(filename);
 		}
 			
-		status = coordenada.getStatus();
+		status = Coordenada.getStatus();
 		if(status == 0){
 		//coloca conteudo na matriz
 			System.out.println("");
-			maze = coordenada.fillM(filename);
+			maze = Coordenada.fillM(filename);
 		}
 			
-			status = coordenada.getStatus();
+			status = Coordenada.getStatus();
 			if(status == 0){
 			//mostra matriz
 			System.out.println("");
-			coordenada.showM();
+			Coordenada.showM();
 			}
 			
-			status = coordenada.getStatus();
+			status = Coordenada.getStatus();
 			if(status == 0){
 			//procura entrada
 			System.out.println("");
-			coordenada.searchE();
+			Coordenada.searchE();
 			}
 			
-			status = coordenada.getStatus();
+			status = Coordenada.getStatus();
 			if(status == 0){
 			//procura saida
 			System.out.println("");
-			coordenada.searchS();
+			Coordenada.searchS();
 			}
 			
-			status = coordenada.getStatus();
+			status = Coordenada.getStatus();
 			if(status == 0){
 			//procura buracos
 			System.out.println("");
-			coordenada.searchB();
+			Coordenada.searchB();
 			}
 			
-			status = coordenada.getStatus();
+			status = Coordenada.getStatus();
 			if(status == 0){
 			//procura buracos
 			System.out.println("");
-			coordenada.verifyESMiddle();
+			Coordenada.verifyESMiddle();
 			}
 			
-			status = coordenada.getStatus();
+			status = Coordenada.getStatus();
 			if(status == 0){
 			//verifica caracteres invalidos
 			System.out.println("");
-			coordenada.verifyInvalidChar();
+			Coordenada.verifyInvalidChar();
 			}
 
 	}
