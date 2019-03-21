@@ -14,9 +14,9 @@ public class Progressao {
 	protected static int status = 0;
 	
 	public static void progress(){
-		maze=Coordenada.getMaze();
-		entL=Coordenada.getEntL();
-		entC=Coordenada.getEntC();
+		maze=Funcao.getMaze();
+		entL=Funcao.getEntL();
+		entC=Funcao.getEntC();
 	
 		Queue<String> fila = new LinkedList<>();
 	

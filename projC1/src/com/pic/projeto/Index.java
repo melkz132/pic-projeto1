@@ -14,6 +14,7 @@ public class Index {
 		Scanner scanner = null;
 		String filename ;
 		
+		
 		//procura o arquivo
 		System.out.println("Nome do arquivo:");
 		input = new Scanner(System.in);
@@ -38,62 +39,64 @@ public class Index {
 			System.out.println("Nao existe o arquivo "+filename);
 		}
 	
-		status = Coordenada.getStatus();
+		status = Funcao.getStatus();
 		if(status == 0){
 			//imprime tudo do arquivo
 			System.out.println("Conteudo do arquivo "+filename);
-			Coordenada.showFile(filename);
+			Funcao.showFile(filename);
 		}
 			
-		status = Coordenada.getStatus();
+		status = Funcao.getStatus();
 		if(status == 0){
 		//coloca conteudo na matriz
 			System.out.println("");
-			maze = Coordenada.fillM(filename);
+			maze = Funcao.fillM(filename);
 		}
 			
-			status = Coordenada.getStatus();
+			status = Funcao.getStatus();
 			if(status == 0){
 			//mostra matriz
 			System.out.println("");
-			Coordenada.showM();
+			Funcao.showM();
 			}
 			
-			status = Coordenada.getStatus();
+			status = Funcao.getStatus();
 			if(status == 0){
 			//procura entrada
 			System.out.println("");
-			Coordenada.searchE();
+			Funcao.searchE();
 			}
 			
-			status = Coordenada.getStatus();
+			status = Funcao.getStatus();
 			if(status == 0){
 			//procura saida
 			System.out.println("");
-			Coordenada.searchS();
+			Funcao.searchS();
 			}
 			
-			status = Coordenada.getStatus();
+			status = Funcao.getStatus();
 			if(status == 0){
 			//procura buracos
 			System.out.println("");
-			Coordenada.searchB();
+			Funcao.searchB();
 			}
 			
-			status = Coordenada.getStatus();
+			status = Funcao.getStatus();
 			if(status == 0){
 			//procura buracos
 			System.out.println("");
-			Coordenada.verifyESMiddle();
+			Funcao.verifyESMiddle();
 			}
 			
-			status = Coordenada.getStatus();
+			status = Funcao.getStatus();
 			if(status == 0){
 			//verifica caracteres invalidos
 			System.out.println("");
-			Coordenada.verifyInvalidChar();
+			Funcao.verifyInvalidChar();
 			}
 
+			Pilha<Coordenada> caminho = new Pilha <Coordenada>(Funcao.getEntL()*Funcao.getEntC());
+			//caminho.guarde());
 	}
 
 }
