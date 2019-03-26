@@ -10,8 +10,10 @@ public class Funcao {
 	protected static char[][] maze;
 	protected static int L;
 	protected static int C;
-	protected static int EntL;
-	protected static int EntC;
+	protected static int entL;
+	protected static int entC;
+	protected static int exitL;
+	protected static int exitC;
 	protected static int status = 0;
 
 	public static void showFile(String filename){
@@ -163,8 +165,8 @@ public class Funcao {
 				 
 					if(maze[q][w]=='E'){
 						//System.out.println("Existe entrada");
-						EntL = q;
-						EntC = w;
+						entL = q;
+						entC = w;
 						position[i++] = q+","+w;
 						e++;
 					}
@@ -175,8 +177,8 @@ public class Funcao {
 				 
 						if(maze[q][w]=='E'){
 							//System.out.println("Existe entrada");
-							EntL = q;
-							EntC = w;
+							entL = q;
+							entC = w;
 							position[i++] = q+","+w;
 							e++;
 						}
@@ -186,8 +188,8 @@ public class Funcao {
 					
 					if(maze[q][w]=='E'){
 						//System.out.println("Existe entrada");
-						EntL = q;
-						EntC = w;
+						entL = q;
+						entC = w;
 						position[i++] = q+","+w;
 						e++;
 					}
@@ -196,8 +198,8 @@ public class Funcao {
 					
 					if(maze[q][w]=='E'){
 						//System.out.println("Existe entrada");
-						EntL = q;
-						EntC = w;
+						entL = q;
+						entC = w;
 						position[i++] = q+","+w;
 						e++;
 					}
@@ -245,8 +247,8 @@ public class Funcao {
 				 
 					if(maze[q][w]=='S'){
 						//System.out.println("Existe saida");
-						EntL = q;
-						EntC = w;
+						exitL = q;
+						exitC = w;
 						position[i++] = q+","+w;
 						s++;
 					}
@@ -257,8 +259,8 @@ public class Funcao {
 				 
 						if(maze[q][w]=='S'){
 							//System.out.println("Existe saida");
-							EntL = q;
-							EntC = w;
+							exitL = q;
+							exitC = w;
 							position[i++] = q+","+w;
 							s++;
 						}
@@ -268,8 +270,8 @@ public class Funcao {
 					
 					if(maze[q][w]=='S'){
 						//System.out.println("Existe saida");
-						EntL = q;
-						EntC = w;
+						exitL = q;
+						exitC = w;
 						position[i++] = q+","+w;
 						s++;
 					}
@@ -278,8 +280,8 @@ public class Funcao {
 					
 					if(maze[q][w]=='S'){
 						//System.out.println("Existe saida");
-						EntL = q;
-						EntC = w;
+						exitL = q;
+						exitC = w;
 						position[i++] = q+","+w;
 						s++;
 					}
@@ -328,8 +330,6 @@ public class Funcao {
 					 
 						if(maze[q][w]==' '){
 							//System.out.println("Existe buraco");
-							EntL = q;
-							EntC = w;
 							position[i++] = q+","+w;
 							b++;
 						}
@@ -340,8 +340,7 @@ public class Funcao {
 					 
 							if(maze[q][w]==' '){
 								//System.out.println("Existe buraco");
-								EntL = q;
-								EntC = w;
+								
 								position[i++] = q+","+w;
 								b++;
 							}
@@ -351,8 +350,7 @@ public class Funcao {
 						
 						if(maze[q][w]==' '){
 							//System.out.println("Existe buraco");
-							EntL = q;
-							EntC = w;
+						
 							position[i++] = q+","+w;
 							b++;
 						}
@@ -361,8 +359,7 @@ public class Funcao {
 						
 						if(maze[q][w]==' '){
 							//System.out.println("Existe buraco");
-							EntL = q;
-							EntC = w;
+							
 							position[i++] = q+","+w;
 							b++;
 						}
@@ -499,10 +496,18 @@ public class Funcao {
 	}
 	
 	public static int getEntL(){
-		return EntL;
+		return entL;
 	}
 	
 	public static int getEntC(){
-		return EntC;
+		return entC;
+	}
+	
+	public static int getLine(){
+		return L;
+	}
+	
+	public static int getColumn(){
+		return C;
 	}
 }

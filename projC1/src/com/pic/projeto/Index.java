@@ -42,14 +42,14 @@ public class Index {
 		status = Funcao.getStatus();
 		if(status == 0){
 			//imprime tudo do arquivo
-			System.out.println("Conteudo do arquivo "+filename);
+			System.out.println("\nConteudo do arquivo "+filename);
 			Funcao.showFile(filename);
 		}
 			
 		status = Funcao.getStatus();
 		if(status == 0){
 		//coloca conteudo na matriz
-			System.out.println("");
+			System.out.println("\nMatriz:");
 			maze = Funcao.fillM(filename);
 		}
 			
@@ -96,8 +96,32 @@ public class Index {
 			}
 
 			Pilha<Coordenada> caminho = new Pilha <Coordenada>(Funcao.getLine()*Funcao.getColumn());
-			Progressao.positionStart(caminho);
+			Pilha<Pilha<Coordenada>> possibilidades = new Pilha<Pilha <Coordenada>>(Funcao.getLine()*Funcao.getColumn());
+			
+			Progressao.positionEntrance(caminho);
 			Progressao.showPosition(caminho);
+			 
+			
+			int cont=0;
+			while (status == 0){
+				status = Progressao.progress(caminho);
+				if(status==0){
+				Progressao.showPosition(caminho);
+				}
+				cont++;
+			}
+			
+			
+			Funcao.showM();
+			
+			/*
+			Progressao.positionPlusOne(caminho);
+			Progressao.showPosition(caminho);
+			
+			caminho.jogueForaValor();
+			
+			Progressao.showPosition(caminho);*/
+			//teste
 			
 	}
 
