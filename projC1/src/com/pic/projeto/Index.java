@@ -95,8 +95,10 @@ public class Index {
 			Funcao.verifyInvalidChar();
 			}
 
-			Pilha<Coordenada> caminho = new Pilha <Coordenada>(Funcao.getEntL()*Funcao.getEntC());
-			//caminho.guarde());
+			Pilha<Coordenada> caminho = new Pilha <Coordenada>(Funcao.getLine()*Funcao.getColumn());
+			Progressao.positionStart(caminho);
+			Progressao.showPosition(caminho);
+			
 	}
 
 }
