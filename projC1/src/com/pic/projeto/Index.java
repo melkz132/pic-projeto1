@@ -94,33 +94,69 @@ public class Index {
 			System.out.println("");
 			Funcao.verifyInvalidChar();
 			}
-
+			
+			status = Funcao.getStatus();
+			if(status == 0){
+				
 			Pilha<Coordenada> caminho = new Pilha <Coordenada>(Funcao.getLine()*Funcao.getColumn());
 			Pilha<Pilha<Coordenada>> possibilidades = new Pilha<Pilha <Coordenada>>(Funcao.getLine()*Funcao.getColumn());
 			
 			Progressao.positionEntrance(caminho);
-			Progressao.showPosition(caminho);
+			//Progressao.showPosition(caminho);
 			 
 			
 			int cont=0;
-			while (status == 0){
-				status = Progressao.progress(caminho);
-				if(status==0){
-				Progressao.showPosition(caminho);
+			
+			while(status<3){
+				while (status == 0){
+					status = Progressao.progress(caminho,possibilidades);
+					if(status==0){
+						//Progressao.showPosition(caminho);
+						
+					}
+					
 				}
+			//Progressao.showStack(caminho);
 				cont++;
-			}
-			
-			
+			System.out.println("\nCaminho:"+cont+"\n");
 			Funcao.showM();
 			
+				while (status == 1){
+					status = Regressao.regress(caminho, possibilidades);
+					//System.out.println(status);
+					//System.out.println("PQ:"+possibilidades.getQuantos());
+				}
+				if(status == 1){
+				Funcao.showM();
+				}
+			}
+			} 
+			
+			if(status == 5 ){
+				System.out.println("\nNao existe caminho\n");
+				Funcao.showM();
+			}
+			
 			/*
-			Progressao.positionPlusOne(caminho);
-			Progressao.showPosition(caminho);
+			System.out.println(status);
+			System.out.println("PQ:"+possibilidades.getQuantos());
 			
-			caminho.jogueForaValor();
-			
-			Progressao.showPosition(caminho);*/
+			Pilha<Coordenada> qwe = new Pilha <Coordenada>(Funcao.getLine()*Funcao.getColumn());
+			while(!possibilidades.isVazia()){
+			qwe = possibilidades.getValor();
+			if(qwe.isVazia()){
+				System.out.println("vazio");
+			}
+			if(!qwe.isVazia()){
+				Coordenada posicao = null;
+				posicao = qwe.getValor();
+				System.out.println("P:"+posicao.getL()+","+posicao.getC());
+			}
+			possibilidades.jogueForaValor();
+			System.out.println("PQ:"+possibilidades.getQuantos());
+			}
+			System.out.println(status);
+			*/
 			//teste
 			
 	}

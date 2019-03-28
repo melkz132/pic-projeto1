@@ -3,7 +3,7 @@ package com.pic.projeto;
 public class Pilha <X>
 {
     private X[] vetor;
-    private int ultimo;
+    private int ultimo=0;
 
     public Pilha (int tamanho) throws Exception
     {
@@ -41,7 +41,7 @@ public class Pilha <X>
     public X getValor () throws Exception
     {
         if (this.ultimo==-1)
-            throw new Exception ("Nada guardado");
+        	throw new Exception ("Nada guardado");
 
         return this.vetor[this.ultimo];
     }
