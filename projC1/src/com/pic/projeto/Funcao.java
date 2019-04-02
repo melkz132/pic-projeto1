@@ -5,7 +5,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+ 
 public class Funcao {
 	protected static char[][] maze;
 	protected static int L;
@@ -32,9 +34,28 @@ public class Funcao {
 			status=1;
 		}
 	}
-	
-	public static char[][] fillM(String filename) throws FileNotFoundException{
-		
+	public static void writeSolucao(String filename) throws Exception {
+		FileWriter fw = new FileWriter(filename, true);
+		BufferedWriter bw = new BufferedWriter( fw );
+		bw.newLine();
+		bw.write("Solução: ");
+		bw.newLine();
+		if(!(maze==null)){
+			 for (int q = 0; q < L; q++){
+					for (int w = 0; w < C; w++){
+						bw.write(maze[q][w]);
+				}
+					bw.newLine();
+			 }
+			}
+			else{
+				System.out.print("Nao existe matriz valida");
+			}
+		bw.close();
+		fw.close();
+	}
+	public static char[][] fillM(String filename) throws Exception{
+			 
 			 Scanner scanner = new Scanner(new File(filename)); 
 			 String S;
 			 int cont = 0;
@@ -62,7 +83,7 @@ public class Funcao {
 					
 				}
 			 i++;
-			 
+			
 			try{
 				
 				while(i < L){
@@ -100,7 +121,6 @@ public class Funcao {
 						break;
 					}
 				}
-				
 				if(i!=L || scanner.hasNextLine()){
 					System.out.println("Numero de linhas esta errado");   
 					maze = null;
@@ -115,7 +135,6 @@ public class Funcao {
 			}
 			
 			 catch(Exception e){
-				 
 				 System.out.println("Matriz nao pode ser preenchida");
 				 status=1;
 			 }
@@ -227,8 +246,23 @@ public class Funcao {
 				 status=0;
 			 }
 			
-			 }
+		}
 	
+		public static void existeS(String filename) throws Exception {
+			Scanner scanner = new Scanner(new File(filename)); 
+			String palavra = "Solução";
+			String aux = ""; 
+			while( true == scanner.hasNextLine()) {
+				aux = scanner.nextLine();
+				if (aux.contains(palavra)) {
+					System.out.println("\nJá existe solução \n");
+					status = 1;
+					scanner.close();
+					throw new Exception();
+				}
+			}
+			scanner.close();
+		}
 		public static void searchS(){
 		
 		int q = 0;

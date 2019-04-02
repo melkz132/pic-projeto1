@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.Scanner;
 
 public class Index {
-
+ 
 	private static Scanner input;
 	private static int status;
 	
@@ -48,9 +48,16 @@ public class Index {
 			
 		status = Funcao.getStatus();
 		if(status == 0){
-		//coloca conteudo na matriz
-			System.out.println("\nMatriz:");
-			maze = Funcao.fillM(filename);
+		//coloca conteudo na matriz	
+			try {
+				Funcao.existeS(filename);
+				System.out.println("\nMatriz:");
+				maze = Funcao.fillM(filename);
+			} catch (Exception SoluçãoExistente) {
+				status = 1;
+				
+			}
+			
 		}
 			
 			status = Funcao.getStatus();
@@ -131,7 +138,11 @@ public class Index {
 				}
 			}
 			} 
-			
+			if(status == 4) {
+				System.out.println("\nSolução : \n");
+				Funcao.showM();
+				Funcao.writeSolucao(filename);
+			}
 			if(status == 5 ){
 				System.out.println("\nNao existe caminho\n");
 				Funcao.showM();
@@ -162,3 +173,4 @@ public class Index {
 	}
 
 }
+
