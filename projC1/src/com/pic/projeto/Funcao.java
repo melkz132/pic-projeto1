@@ -34,11 +34,13 @@ public class Funcao {
 			status=1;
 		}
 	}
+	
 	public static void writeSolucao(String filename) throws Exception {
 		FileWriter fw = new FileWriter(filename, true);
 		BufferedWriter bw = new BufferedWriter( fw );
 		bw.newLine();
 		bw.write("Solução: ");
+		bw.newLine();
 		bw.newLine();
 		if(!(maze==null)){
 			 for (int q = 0; q < L; q++){
@@ -54,6 +56,7 @@ public class Funcao {
 		bw.close();
 		fw.close();
 	}
+	
 	public static char[][] fillM(String filename) throws Exception{
 			 
 			 Scanner scanner = new Scanner(new File(filename)); 
@@ -248,7 +251,7 @@ public class Funcao {
 			
 		}
 	
-		public static void existeS(String filename) throws Exception {
+		public static int existeSolucao(String filename) throws Exception {
 			Scanner scanner = new Scanner(new File(filename)); 
 			String palavra = "Solução";
 			String aux = ""; 
@@ -256,13 +259,14 @@ public class Funcao {
 				aux = scanner.nextLine();
 				if (aux.contains(palavra)) {
 					System.out.println("\nJá existe solução \n");
-					status = 1;
 					scanner.close();
-					throw new Exception();
+					return status = 1;
 				}
 			}
 			scanner.close();
+			return status = 0;
 		}
+		
 		public static void searchS(){
 		
 		int q = 0;

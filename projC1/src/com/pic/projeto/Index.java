@@ -45,19 +45,13 @@ public class Index {
 			System.out.println("\nConteudo do arquivo "+filename);
 			Funcao.showFile(filename);
 		}
-			
-		status = Funcao.getStatus();
+		
+		status = Funcao.existeSolucao(filename);
+		
 		if(status == 0){
 		//coloca conteudo na matriz	
-			try {
-				Funcao.existeS(filename);
 				System.out.println("\nMatriz:");
 				maze = Funcao.fillM(filename);
-			} catch (Exception SoluçãoExistente) {
-				status = 1;
-				
-			}
-			
 		}
 			
 			status = Funcao.getStatus();
