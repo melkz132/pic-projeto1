@@ -46,7 +46,10 @@ public class Index {
 			Funcao.showFile(filename);
 		}
 		
+		status = Funcao.getStatus();
+		if(status == 0){
 		status = Funcao.existeSolucao(filename);
+		}
 		
 		if(status == 0){
 		//coloca conteudo na matriz	
